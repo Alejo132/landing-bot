@@ -3,237 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bot de WhatsApp con IA · Automatizá tu negocio</title>
-<meta name="description" content="Tu negocio responde solo, las 24 horas. Bot de WhatsApp con inteligencia artificial para restaurantes, clínicas, spas y gimnasios.">
+<title>Alejo Monterroso · Automatización con IA</title>
+<meta name="description" content="Automatización de negocios con inteligencia artificial. Bot de WhatsApp, trading automatizado y dashboards inmobiliarios.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --green: #25D366;
     --green-dark: #128C7E;
+    --blue: #3b82f6;
+    --blue-dark: #1d4ed8;
+    --purple: #8b5cf6;
+    --purple-dark: #6d28d9;
     --black: #0a0a0a;
     --gray: #6b7280;
-    --gray-light: #f3f4f6;
+    --gray-light: #f9fafb;
     --white: #ffffff;
   }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); line-height: 1.6; }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--black);
-    line-height: 1.6;
-  }
-
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
     border-bottom: 1px solid #e5e7eb;
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-brand { font-weight: 800; font-size: 1rem; letter-spacing: -0.5px; }
+  .nav-brand { font-weight: 900; font-size: 1rem; letter-spacing: -0.5px; }
   .nav-brand span { color: var(--green); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--black); }
   .nav-cta {
-    background: var(--green); color: var(--white);
+    background: var(--black); color: var(--white);
     padding: 0.5rem 1.2rem; border-radius: 50px;
-    text-decoration: none; font-weight: 600; font-size: 0.85rem;
+    text-decoration: none; font-weight: 700; font-size: 0.85rem;
     transition: background 0.2s;
   }
-  .nav-cta:hover { background: var(--green-dark); }
+  .nav-cta:hover { background: #333; color: var(--white) !important; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 7rem 2rem 4rem;
-    background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 60%);
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 7rem 2rem 5rem;
+    background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 50%, #faf5ff 100%);
   }
-  .hero-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-  }
+  .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; }
   .hero-badge {
-    display: inline-block;
-    background: #dcfce7; color: #166534;
-    padding: 0.3rem 0.9rem; border-radius: 50px;
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px;
-    margin-bottom: 1.2rem;
+    display: inline-block; background: #111; color: white;
+    padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 1.5rem;
   }
   h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800; line-height: 1.15;
-    letter-spacing: -1px; margin-bottom: 1.2rem;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900; line-height: 1.1; letter-spacing: -2px; margin-bottom: 1.2rem;
   }
-  h1 span { color: var(--green); }
-  .hero-sub {
-    font-size: 1.1rem; color: var(--gray);
-    margin-bottom: 2rem; max-width: 480px;
+  .hero-sub { font-size: 1.15rem; color: var(--gray); max-width: 560px; margin: 0 auto 2.5rem; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none;
+    font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: transform 0.2s, opacity 0.2s;
   }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--green); color: var(--white);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    text-decoration: none; font-weight: 700; font-size: 1rem;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
-  .btn-secondary {
-    background: transparent; color: var(--black);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    text-decoration: none; font-weight: 600; font-size: 1rem;
-    border: 2px solid #e5e7eb;
-    transition: border-color 0.2s;
-  }
-  .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+  .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-green { background: var(--green); color: white; }
+  .btn-outline { background: white; color: var(--black); border: 2px solid #e5e7eb; }
+  .btn-outline:hover { border-color: var(--black); }
 
-  /* ── CHAT MOCKUP ── */
-  .phone {
-    background: #111; border-radius: 40px; padding: 12px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.3);
-    max-width: 300px; margin: 0 auto;
-  }
-  .phone-screen {
-    background: #ece5dd; border-radius: 30px; overflow: hidden;
-  }
-  .phone-header {
-    background: var(--green-dark); padding: 1rem;
-    display: flex; align-items: center; gap: 0.7rem;
-  }
-  .phone-avatar {
-    width: 36px; height: 36px; background: var(--green);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-  }
-  .phone-name { color: white; font-weight: 600; font-size: 0.9rem; }
-  .phone-status { color: rgba(255,255,255,0.7); font-size: 0.7rem; }
-  .phone-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; min-height: 320px; }
-  .bubble {
-    padding: 0.5rem 0.8rem; border-radius: 12px;
-    font-size: 0.78rem; max-width: 85%; line-height: 1.4;
-  }
-  .bubble-in { background: white; align-self: flex-start; border-radius: 2px 12px 12px 12px; }
-  .bubble-out { background: #dcf8c6; align-self: flex-end; border-radius: 12px 2px 12px 12px; }
-  .bubble-time { font-size: 0.6rem; color: var(--gray); text-align: right; margin-top: 2px; }
-  .typing { display: flex; gap: 4px; align-items: center; padding: 0.5rem 0.8rem; background: white; border-radius: 2px 12px 12px 12px; width: fit-content; }
-  .typing span { width: 6px; height: 6px; background: #aaa; border-radius: 50%; animation: bounce 1.2s infinite; }
-  .typing span:nth-child(2) { animation-delay: 0.2s; }
-  .typing span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+  /* STATS */
+  .stats { background: var(--black); padding: 3rem 2rem; }
+  .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; text-align: center; }
+  .stat-num { font-size: 2.5rem; font-weight: 900; color: white; }
+  .stat-label { font-size: 0.8rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
 
-  /* ── SECTION ── */
-  section { padding: 5rem 2rem; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem; font-weight: 700; color: var(--green);
-    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.8rem;
-  }
-  h2 {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1rem;
-  }
-  .section-sub { font-size: 1.05rem; color: var(--gray); max-width: 540px; margin-bottom: 3rem; }
+  /* PRODUCTOS */
+  .productos { padding: 6rem 2rem; }
+  .productos-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.8rem; }
+  h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 1rem; }
+  .section-sub { font-size: 1.05rem; color: var(--gray); max-width: 560px; margin-bottom: 4rem; }
 
-  /* ── FEATURES ── */
-  .features-bg { background: var(--gray-light); }
-  .features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+  .producto-card {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    margin-bottom: 6rem; padding: 3rem; border-radius: 24px;
   }
-  .feature-card {
-    background: white; padding: 1.8rem; border-radius: 16px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    border-top: 3px solid transparent;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .feature-card:hover { border-top-color: var(--green); transform: translateY(-4px); }
-  .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .feature-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
-  .feature-desc { font-size: 0.9rem; color: var(--gray); }
+  .producto-card.reverse { direction: rtl; }
+  .producto-card.reverse > * { direction: ltr; }
+  .prod-green { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+  .prod-blue  { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+  .prod-purple{ background: linear-gradient(135deg, #faf5ff, #ede9fe); }
 
-  /* ── NEGOCIOS ── */
-  .negocios-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;
+  .prod-badge {
+    display: inline-block; padding: 0.3rem 0.8rem; border-radius: 50px;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 1rem;
   }
-  .negocio-pill {
-    background: var(--gray-light); border-radius: 12px; padding: 1.2rem;
-    text-align: center; font-size: 0.9rem; font-weight: 500;
-  }
-  .negocio-pill .icon { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; }
+  .badge-green  { background: #dcfce7; color: #166534; }
+  .badge-blue   { background: #dbeafe; color: #1e40af; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
 
-  /* ── PRECIOS ── */
-  .precios-bg { background: var(--black); color: white; }
-  .precios-bg h2, .precios-bg .section-label { color: white; }
-  .precios-bg .section-sub { color: #9ca3af; }
-  .precios-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
-  }
-  .precio-card {
-    background: #1a1a1a; border-radius: 20px; padding: 2rem;
-    border: 1px solid #333; position: relative;
-  }
-  .precio-card.featured {
-    background: var(--green); border-color: var(--green);
-    transform: scale(1.03);
-  }
-  .precio-tag {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: #fbbf24; color: #111; padding: 0.2rem 0.8rem;
-    border-radius: 50px; font-size: 0.7rem; font-weight: 700; white-space: nowrap;
-  }
-  .precio-nombre { font-size: 0.8rem; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-  .precio-card.featured .precio-nombre { color: rgba(255,255,255,0.8); }
-  .precio-monto { font-size: 2.8rem; font-weight: 800; margin-bottom: 0.2rem; }
-  .precio-periodo { font-size: 0.8rem; color: #9ca3af; margin-bottom: 1.5rem; }
-  .precio-card.featured .precio-periodo { color: rgba(255,255,255,0.8); }
-  .precio-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-  .precio-features li { font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
-  .precio-features li::before { content: "✓"; font-weight: 700; color: var(--green); }
-  .precio-card.featured .precio-features li::before { color: white; }
-  .precio-setup { font-size: 0.8rem; color: #9ca3af; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #333; }
-  .precio-card.featured .precio-setup { color: rgba(255,255,255,0.7); border-top-color: rgba(255,255,255,0.2); }
+  .prod-title { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 0.8rem; }
+  .prod-desc { color: var(--gray); margin-bottom: 1.5rem; font-size: 1rem; }
+  .prod-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+  .prod-features li { font-size: 0.9rem; display: flex; align-items: center; gap: 0.6rem; }
+  .check-green  { color: var(--green); font-weight: 700; }
+  .check-blue   { color: var(--blue); font-weight: 700; }
+  .check-purple { color: var(--purple); font-weight: 700; }
 
-  /* ── PROCESO ── */
-  .proceso-steps {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;
-    margin-top: 3rem;
-  }
-  .paso { text-align: center; }
-  .paso-num {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: var(--green); color: white;
-    font-size: 1.3rem; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1rem;
-  }
+  .prod-precio { margin-bottom: 1.5rem; }
+  .prod-precio .desde { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+  .prod-precio .monto { font-size: 2rem; font-weight: 900; }
+  .prod-precio .periodo { font-size: 0.85rem; color: var(--gray); }
+
+  .btn-green-solid { background: var(--green); color: white; }
+  .btn-blue-solid  { background: var(--blue); color: white; }
+  .btn-purple-solid{ background: var(--purple); color: white; }
+
+  /* MOCKUPS */
+  .mockup { position: relative; }
+
+  /* Phone mockup */
+  .phone { background: #111; border-radius: 36px; padding: 10px; box-shadow: 0 30px 60px rgba(0,0,0,0.25); max-width: 260px; margin: 0 auto; }
+  .phone-screen { background: #ece5dd; border-radius: 28px; overflow: hidden; }
+  .phone-header { background: #128C7E; padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .phone-avatar { width: 32px; height: 32px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+  .phone-name { color: white; font-weight: 600; font-size: 0.8rem; }
+  .phone-status { color: rgba(255,255,255,0.7); font-size: 0.65rem; }
+  .phone-body { padding: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; min-height: 280px; }
+  .bubble { padding: 0.45rem 0.7rem; border-radius: 10px; font-size: 0.72rem; max-width: 82%; line-height: 1.4; }
+  .b-in  { background: white; align-self: flex-start; border-radius: 2px 10px 10px 10px; }
+  .b-out { background: #dcf8c6; align-self: flex-end; border-radius: 10px 2px 10px 10px; }
+  .b-time { font-size: 0.58rem; color: #aaa; margin-top: 1px; text-align: right; }
+
+  /* Chart mockup */
+  .chart-mock { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 360px; margin: 0 auto; }
+  .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .chart-title { font-weight: 700; font-size: 0.9rem; }
+  .chart-badge { background: #dcfce7; color: #166534; padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; }
+  .chart-num { font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem; }
+  .chart-sub { font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem; }
+  .chart-bars { display: flex; gap: 6px; align-items: flex-end; height: 80px; }
+  .bar { flex: 1; border-radius: 4px 4px 0 0; transition: height 0.3s; }
+  .bar-blue { background: var(--blue); }
+  .bar-blue-light { background: #bfdbfe; }
+  .chart-labels { display: flex; gap: 6px; margin-top: 4px; }
+  .chart-labels span { flex: 1; text-align: center; font-size: 0.6rem; color: var(--gray); }
+  .kpi-row { display: flex; gap: 0.8rem; margin-top: 1rem; }
+  .kpi-mini { flex: 1; background: var(--gray-light); border-radius: 8px; padding: 0.6rem; }
+  .kpi-mini .kl { font-size: 0.6rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-mini .kv { font-size: 1rem; font-weight: 800; margin-top: 2px; }
+
+  /* Trading mockup */
+  .trading-mock { background: #111; border-radius: 16px; padding: 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.3); max-width: 360px; margin: 0 auto; color: white; }
+  .t-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .t-pair { font-weight: 800; font-size: 1rem; }
+  .t-live { background: #22c55e; padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; }
+  .t-price { font-size: 2.2rem; font-weight: 900; color: #4ade80; margin-bottom: 0.2rem; }
+  .t-change { font-size: 0.8rem; color: #4ade80; margin-bottom: 1.2rem; }
+  .t-grid-title { font-size: 0.65rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.6rem; }
+  .t-grid-row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.6rem; border-radius: 6px; margin-bottom: 4px; font-size: 0.75rem; }
+  .t-sell { background: rgba(239,68,68,0.15); color: #f87171; }
+  .t-current { background: rgba(234,179,8,0.15); color: #fbbf24; font-weight: 700; }
+  .t-buy { background: rgba(34,197,94,0.15); color: #4ade80; }
+  .t-gain { background: #1a1a1a; border-radius: 8px; padding: 0.8rem; margin-top: 1rem; display: flex; justify-content: space-between; }
+  .t-gain-label { font-size: 0.7rem; color: #9ca3af; }
+  .t-gain-val { font-size: 1rem; font-weight: 800; color: #4ade80; }
+
+  /* PROCESO */
+  .proceso { background: var(--gray-light); padding: 5rem 2rem; }
+  .proceso-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .pasos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .paso { }
+  .paso-num { width: 52px; height: 52px; border-radius: 50%; background: var(--black); color: white; font-size: 1.2rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
   .paso-title { font-weight: 700; margin-bottom: 0.4rem; }
-  .paso-desc { font-size: 0.9rem; color: var(--gray); }
+  .paso-desc { font-size: 0.88rem; color: var(--gray); }
 
-  /* ── CTA FINAL ── */
-  .cta-final {
-    background: linear-gradient(135deg, #dcfce7, #f0fdf4);
-    text-align: center; padding: 6rem 2rem;
-  }
-  .cta-final h2 { margin-bottom: 1rem; }
-  .cta-final p { color: var(--gray); margin-bottom: 2rem; font-size: 1.05rem; }
-  .cta-final .btn-primary { font-size: 1.1rem; padding: 1rem 2.5rem; }
+  /* CTA */
+  .cta-final { background: var(--black); padding: 6rem 2rem; text-align: center; }
+  .cta-final h2 { color: white; margin-bottom: 1rem; }
+  .cta-final p { color: #9ca3af; margin-bottom: 2.5rem; font-size: 1.05rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--black); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--black); color: #9ca3af;
-    text-align: center; padding: 2rem;
-    font-size: 0.8rem;
-  }
+  footer { background: #050505; color: #6b7280; text-align: center; padding: 1.5rem; font-size: 0.8rem; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .phone { max-width: 260px; }
-    .precio-card.featured { transform: none; }
-    nav { padding: 0.8rem 1rem; }
+    .producto-card { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+    .producto-card.reverse { direction: ltr; }
+    .nav-links { display: none; }
+    .phone { max-width: 220px; }
   }
 </style>
 </head>
@@ -241,226 +203,257 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">bot<span>WA</span> · IA</div>
-  <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20bot" class="nav-cta" target="_blank">
-    Quiero la demo →
-  </a>
+  <div class="nav-brand">alejo<span>.</span>ai</div>
+  <div class="nav-links">
+    <a href="#productos">Productos</a>
+    <a href="#proceso">Cómo funciona</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20saber%20m%C3%A1s%20sobre%20tus%20servicios" class="nav-cta" target="_blank">Hablemos →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="hero-badge">🤖 Inteligencia Artificial aplicada a negocios</div>
+    <h1>Automatizá tu negocio<br>con IA real</h1>
+    <p class="hero-sub">Bots de WhatsApp, trading automatizado y análisis de mercados. Tecnología de punta al alcance de cualquier negocio.</p>
+    <div class="hero-btns">
+      <a href="#productos" class="btn btn-green">Ver productos</a>
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20una%20demo" class="btn btn-outline" target="_blank">💬 Pedir demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
     <div>
-      <div class="hero-badge">🤖 Inteligencia Artificial · WhatsApp</div>
-      <h1>Tu negocio responde solo,<br><span>las 24 horas</span></h1>
-      <p class="hero-sub">
-        Un bot con IA que atiende a tus clientes por WhatsApp — reservas, preguntas, horarios y menú — sin que vos o tu equipo tengan que contestar a mano.
-      </p>
-      <div class="hero-actions">
-        <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20bot" class="btn-primary" target="_blank">
-          💬 Ver demo gratis
-        </a>
-        <a href="#precios" class="btn-secondary">Ver precios</a>
-      </div>
+      <div class="stat-num">73+</div>
+      <div class="stat-label">Empresas contactadas</div>
     </div>
-
-    <!-- CHAT MOCKUP -->
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="phone-header">
-          <div class="phone-avatar">🍕</div>
-          <div>
-            <div class="phone-name">Fundamento Pizza</div>
-            <div class="phone-status">en línea</div>
-          </div>
-        </div>
-        <div class="phone-body">
-          <div class="bubble bubble-out">
-            Hola! ¿Tienen mesa para 4 personas el viernes a las 21?
-            <div class="bubble-time">20:14 ✓✓</div>
-          </div>
-          <div class="bubble bubble-in">
-            ¡Hola! 👋 Sí, tenemos disponibilidad el viernes. ¿En qué local preferís? Pocitos, Cordón o Ciudad Vieja
-            <div class="bubble-time">20:14</div>
-          </div>
-          <div class="bubble bubble-out">
-            Pocitos!
-            <div class="bubble-time">20:15 ✓✓</div>
-          </div>
-          <div class="bubble bubble-in">
-            Perfecto 🙌 ¿A nombre de quién hago la reserva?
-            <div class="bubble-time">20:15</div>
-          </div>
-          <div class="bubble bubble-out">
-            Martínez
-            <div class="bubble-time">20:15 ✓✓</div>
-          </div>
-          <div class="typing">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-      </div>
+    <div>
+      <div class="stat-num">6</div>
+      <div class="stat-label">Países</div>
+    </div>
+    <div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Disponibilidad</div>
+    </div>
+    <div>
+      <div class="stat-num">48h</div>
+      <div class="stat-label">Tiempo de entrega</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- NEGOCIOS -->
-<section>
-  <div class="section-inner">
-    <div class="section-label">Para quién es</div>
-    <h2>Funciona para cualquier negocio que recibe consultas por WhatsApp</h2>
-    <div class="negocios-grid" style="margin-top:2rem">
-      <div class="negocio-pill"><span class="icon">🍽️</span>Restaurantes</div>
-      <div class="negocio-pill"><span class="icon">🦷</span>Clínicas dentales</div>
-      <div class="negocio-pill"><span class="icon">💆</span>Spas y estéticas</div>
-      <div class="negocio-pill"><span class="icon">💪</span>Gimnasios</div>
-      <div class="negocio-pill"><span class="icon">✂️</span>Peluquerías</div>
-      <div class="negocio-pill"><span class="icon">⚖️</span>Estudios jurídicos</div>
-    </div>
-  </div>
-</section>
+<!-- PRODUCTOS -->
+<section class="productos" id="productos">
+  <div class="productos-inner">
+    <div class="section-label">Qué ofrezco</div>
+    <h2>Tres productos,<br>un solo objetivo</h2>
+    <p class="section-sub">Soluciones de IA que ahorran tiempo, aumentan ventas y generan ingresos pasivos.</p>
 
-<!-- FEATURES -->
-<section class="features-bg">
-  <div class="section-inner">
-    <div class="section-label">Funcionalidades</div>
-    <h2>Todo lo que necesita tu negocio</h2>
-    <p class="section-sub">El bot aprende la información de tu negocio y responde como si fuera una persona del equipo.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🕐</div>
-        <div class="feature-title">Disponible 24/7</div>
-        <div class="feature-desc">Responde de noche, los fines de semana y feriados. Nunca pierde un cliente por no contestar a tiempo.</div>
+    <!-- PRODUCTO 1: Bot WhatsApp -->
+    <div class="producto-card prod-green">
+      <div>
+        <div class="prod-badge badge-green">💬 Más popular</div>
+        <div class="prod-title">Bot de WhatsApp con IA</div>
+        <p class="prod-desc">Tu negocio responde solo las 24 horas. Reservas, preguntas frecuentes, horarios y menú — sin que tu equipo tenga que contestar a mano.</p>
+        <ul class="prod-features">
+          <li><span class="check-green">✓</span> Respuestas automáticas 24/7</li>
+          <li><span class="check-green">✓</span> Gestión de reservas y turnos</li>
+          <li><span class="check-green">✓</span> Notificación al dueño por WhatsApp</li>
+          <li><span class="check-green">✓</span> Panel de conversaciones y estadísticas</li>
+          <li><span class="check-green">✓</span> 100% personalizado con tu info</li>
+          <li><span class="check-green">✓</span> Listo en 48 horas</li>
+        </ul>
+        <div class="prod-precio">
+          <div class="desde">Desde</div>
+          <div class="monto">U$S 150 <span class="periodo">/mes</span></div>
+          <div class="periodo">+ U$S 300 configuración inicial</div>
+        </div>
+        <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20bot%20de%20WhatsApp" class="btn btn-green-solid btn" target="_blank">Ver demo gratis →</a>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">📋</div>
-        <div class="feature-title">Gestión de reservas</div>
-        <div class="feature-desc">Toma el nombre, fecha, hora y cantidad de personas. Te avisa por WhatsApp cada vez que hay una nueva reserva.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🧠</div>
-        <div class="feature-title">Inteligencia artificial real</div>
-        <div class="feature-desc">Usa Claude de Anthropic — una de las IAs más avanzadas del mundo — para responder de forma natural y personalizada.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Panel de control</div>
-        <div class="feature-desc">Mirá todas las conversaciones, cuántos clientes contactaron y cuántas reservas se hicieron desde un panel web.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🌙</div>
-        <div class="feature-title">Horario de atención</div>
-        <div class="feature-desc">Fuera del horario del negocio, el bot avisa cuándo vuelven a abrir y deja el mensaje registrado.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚙️</div>
-        <div class="feature-title">100% personalizado</div>
-        <div class="feature-desc">Configurado con el menú, precios, horarios y estilo de tu negocio. No es un bot genérico.</div>
+      <div class="mockup">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div class="phone-avatar">💆</div>
+              <div>
+                <div class="phone-name">Beauty Planet Spa</div>
+                <div class="phone-status">en línea</div>
+              </div>
+            </div>
+            <div class="phone-body">
+              <div class="bubble b-out">Hola! ¿Tienen turnos para masaje mañana?<div class="b-time">10:23 ✓✓</div></div>
+              <div class="bubble b-in">¡Hola! 👋 Sí tenemos disponibilidad mañana. ¿En qué sucursal preferís?<div class="b-time">10:23</div></div>
+              <div class="bubble b-out">Punta Carretas<div class="b-time">10:24 ✓✓</div></div>
+              <div class="bubble b-in">Perfecto 🙌 Tenemos horarios a las 11:00, 14:00 y 17:00. ¿Cuál te viene mejor?<div class="b-time">10:24</div></div>
+              <div class="bubble b-out">Las 14:00 perfecto<div class="b-time">10:24 ✓✓</div></div>
+              <div class="bubble b-in">¡Listo! Reserva confirmada ✅ Mañana a las 14:00 en Punta Carretas. ¿A nombre de quién?<div class="b-time">10:24</div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- PRODUCTO 2: Dashboard Inmobiliario -->
+    <div class="producto-card prod-blue reverse">
+      <div>
+        <div class="prod-badge badge-blue">📊 Para inmobiliarias</div>
+        <div class="prod-title">Dashboard de Mercado Inmobiliario</div>
+        <p class="prod-desc">Análisis completo del mercado en tiempo real. Precios por zona, oportunidades de inversión, mapas interactivos y reportes PDF para tus clientes.</p>
+        <ul class="prod-features">
+          <li><span class="check-blue">✓</span> Datos actualizados semanalmente</li>
+          <li><span class="check-blue">✓</span> Mapa interactivo de propiedades</li>
+          <li><span class="check-blue">✓</span> Detección automática de oportunidades</li>
+          <li><span class="check-blue">✓</span> Reportes PDF personalizados</li>
+          <li><span class="check-blue">✓</span> Análisis por zona, precio y m²</li>
+          <li><span class="check-blue">✓</span> Acceso desde cualquier dispositivo</li>
+        </ul>
+        <div class="prod-precio">
+          <div class="desde">Desde</div>
+          <div class="monto">U$S 200 <span class="periodo">/mes</span></div>
+          <div class="periodo">+ U$S 500 desarrollo inicial</div>
+        </div>
+        <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20el%20dashboard%20inmobiliario" class="btn btn-blue-solid btn" target="_blank">Quiero una demo →</a>
+      </div>
+      <div class="mockup">
+        <div class="chart-mock">
+          <div class="chart-header">
+            <div class="chart-title">Mercado Inmobiliario</div>
+            <div class="chart-badge">↑ En vivo</div>
+          </div>
+          <div class="chart-num">U$S 2,850</div>
+          <div class="chart-sub">Precio mediano/m² · Punta del Este</div>
+          <div class="chart-bars">
+            <div class="bar bar-blue-light" style="height:45%"></div>
+            <div class="bar bar-blue-light" style="height:55%"></div>
+            <div class="bar bar-blue" style="height:62%"></div>
+            <div class="bar bar-blue" style="height:58%"></div>
+            <div class="bar bar-blue" style="height:72%"></div>
+            <div class="bar bar-blue" style="height:68%"></div>
+            <div class="bar bar-blue" style="height:80%"></div>
+            <div class="bar bar-blue" style="height:76%"></div>
+            <div class="bar bar-blue" style="height:90%"></div>
+            <div class="bar bar-blue" style="height:85%"></div>
+          </div>
+          <div class="chart-labels">
+            <span>Ago</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dic</span>
+            <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span>
+          </div>
+          <div class="kpi-row">
+            <div class="kpi-mini"><div class="kl">Propiedades</div><div class="kv">2,852</div></div>
+            <div class="kpi-mini"><div class="kl">Zonas</div><div class="kv">38</div></div>
+            <div class="kpi-mini"><div class="kl">Oportunidades</div><div class="kv">47</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTO 3: Bot de Trading -->
+    <div class="producto-card prod-purple">
+      <div>
+        <div class="prod-badge badge-purple">📈 Trading 24/7</div>
+        <div class="prod-title">Bot de Trading Automatizado</div>
+        <p class="prod-desc">Tu dinero trabaja solo mientras dormís. Grid trading en Binance con gestión de riesgo automática, sin que tengas que mirar los gráficos.</p>
+        <ul class="prod-features">
+          <li><span class="check-purple">✓</span> Estrategia Grid Trading probada</li>
+          <li><span class="check-purple">✓</span> Gestión de riesgo automática</li>
+          <li><span class="check-purple">✓</span> Funciona con cualquier capital</li>
+          <li><span class="check-purple">✓</span> Reportes de ganancias en tiempo real</li>
+          <li><span class="check-purple">✓</span> Soporte y ajustes incluidos</li>
+          <li><span class="check-purple">✓</span> Compatible con Binance</li>
+        </ul>
+        <div class="prod-precio">
+          <div class="desde">Setup</div>
+          <div class="monto">U$S 300 <span class="periodo">único pago</span></div>
+          <div class="periodo">+ 20% de las ganancias mensuales</div>
+        </div>
+        <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20el%20bot%20de%20trading" class="btn btn-purple-solid btn" target="_blank">Me interesa →</a>
+      </div>
+      <div class="mockup">
+        <div class="trading-mock">
+          <div class="t-header">
+            <div class="t-pair">ETH / USDT</div>
+            <div class="t-live">● LIVE</div>
+          </div>
+          <div class="t-price">$2,104.85</div>
+          <div class="t-change">▲ +3.2% hoy</div>
+          <div class="t-grid-title">Grid activo · 3 niveles</div>
+          <div class="t-grid-row t-sell">
+            <span>VENTA</span><span>$2,189.04</span><span>Esperando</span>
+          </div>
+          <div class="t-grid-row t-sell">
+            <span>VENTA</span><span>$2,132.91</span><span>Esperando</span>
+          </div>
+          <div class="t-grid-row t-current">
+            <span>◀ PRECIO</span><span>$2,104.85</span><span>Actual</span>
+          </div>
+          <div class="t-grid-row t-buy">
+            <span>COMPRA</span><span>$2,076.79</span><span>Activa</span>
+          </div>
+          <div class="t-grid-row t-buy">
+            <span>COMPRA</span><span>$2,020.66</span><span>Activa</span>
+          </div>
+          <div class="t-gain">
+            <div><div class="t-gain-label">Ganancia sesión</div><div class="t-gain-val">+$1.24</div></div>
+            <div><div class="t-gain-label">Órdenes ejecutadas</div><div class="t-gain-val">8</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- PROCESO -->
-<section>
-  <div class="section-inner">
-    <div class="section-label">Cómo funciona</div>
-    <h2>Listo en 48 horas</h2>
-    <p class="section-sub">Sin complicaciones técnicas. Vos solo usás WhatsApp normalmente.</p>
-    <div class="proceso-steps">
+<section class="proceso" id="proceso">
+  <div class="proceso-inner">
+    <div class="section-label">El proceso</div>
+    <h2>Simple y rápido</h2>
+    <p class="section-sub" style="margin:0 auto 0">Sin complicaciones técnicas. En 48 horas tenés todo funcionando.</p>
+    <div class="pasos">
       <div class="paso">
         <div class="paso-num">1</div>
-        <div class="paso-title">Demo gratis</div>
-        <div class="paso-desc">Te mostramos el bot en acción con un ejemplo de tu negocio.</div>
+        <div class="paso-title">Me contactás</div>
+        <div class="paso-desc">Por WhatsApp o email. Te hago una demo sin costo ni compromiso.</div>
       </div>
       <div class="paso">
         <div class="paso-num">2</div>
-        <div class="paso-title">Nos mandás la info</div>
-        <div class="paso-desc">Menú, horarios, servicios y lo que quieras que el bot sepa.</div>
+        <div class="paso-title">Elegís el producto</div>
+        <div class="paso-desc">Elegís qué necesita tu negocio y me mandás la información.</div>
       </div>
       <div class="paso">
         <div class="paso-num">3</div>
-        <div class="paso-title">Configuramos todo</div>
-        <div class="paso-desc">En 48 horas el bot está listo y conectado a tu WhatsApp.</div>
+        <div class="paso-title">Lo configuramos</div>
+        <div class="paso-desc">En 48 horas está todo listo, personalizado y funcionando.</div>
       </div>
       <div class="paso">
         <div class="paso-num">4</div>
-        <div class="paso-title">Empezás a usarlo</div>
-        <div class="paso-desc">Tu equipo trabaja normal y el bot atiende solo en segundo plano.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRECIOS -->
-<section class="precios-bg" id="precios">
-  <div class="section-inner">
-    <div class="section-label">Precios</div>
-    <h2>Simple y transparente</h2>
-    <p class="section-sub">Sin contratos largos. Cancelás cuando quieras.</p>
-    <div class="precios-grid" style="margin-top:3rem">
-      <div class="precio-card">
-        <div class="precio-nombre">Básico</div>
-        <div class="precio-monto">U$S 99</div>
-        <div class="precio-periodo">por mes</div>
-        <ul class="precio-features">
-          <li>Bot con IA para WhatsApp</li>
-          <li>Respuestas ilimitadas</li>
-          <li>Disponible 24/7</li>
-          <li>Panel de conversaciones</li>
-          <li>Soporte por WhatsApp</li>
-        </ul>
-        <div class="precio-setup">+ U$S 200 configuración inicial (único pago)</div>
-      </div>
-      <div class="precio-card featured">
-        <div class="precio-tag">⭐ Más popular</div>
-        <div class="precio-nombre">Profesional</div>
-        <div class="precio-monto">U$S 150</div>
-        <div class="precio-periodo">por mes</div>
-        <ul class="precio-features">
-          <li>Todo lo del plan Básico</li>
-          <li>Gestión de reservas</li>
-          <li>Notificación al dueño</li>
-          <li>Horario de atención</li>
-          <li>Actualizaciones incluidas</li>
-          <li>Soporte prioritario</li>
-        </ul>
-        <div class="precio-setup">+ U$S 300 configuración inicial (único pago)</div>
-      </div>
-      <div class="precio-card">
-        <div class="precio-nombre">Avanzado</div>
-        <div class="precio-monto">U$S 250</div>
-        <div class="precio-periodo">por mes</div>
-        <ul class="precio-features">
-          <li>Todo lo del plan Profesional</li>
-          <li>Recordatorios automáticos</li>
-          <li>Instagram y Messenger</li>
-          <li>Estadísticas mensuales</li>
-          <li>Integración Google Calendar</li>
-          <li>Personalización total</li>
-        </ul>
-        <div class="precio-setup">+ U$S 500 configuración inicial (único pago)</div>
+        <div class="paso-title">Empezás a ver resultados</div>
+        <div class="paso-desc">Tu negocio trabaja solo. Vos te enfocás en lo que importa.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="cta-final">
-  <div class="section-inner">
-    <h2>¿Querés verlo en acción?</h2>
-    <p>Te mostramos una demo personalizada para tu negocio, sin costo ni compromiso.</p>
-    <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20bot%20de%20WhatsApp" class="btn-primary" target="_blank">
-      💬 Escribinos por WhatsApp
-    </a>
-    <p style="margin-top:1.5rem; font-size:0.85rem; color:#9ca3af;">
-      También podés escribirnos a <strong>alejomonterrosop@gmail.com</strong>
-    </p>
+<section class="cta-final" id="contacto">
+  <div>
+    <h2>¿Listo para automatizar tu negocio?</h2>
+    <p>Demo gratis, sin contratos y sin complicaciones técnicas. Hablemos hoy.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20saber%20m%C3%A1s%20sobre%20tus%20servicios" class="btn btn-green" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:alejomonterrosop@gmail.com" class="btn btn-white">📧 Email</a>
+    </div>
+    <p style="margin-top:2rem; font-size:0.85rem;">alejomonterrosop@gmail.com · +598 95 047 981 · Montevideo, Uruguay</p>
   </div>
 </section>
 
 <footer>
-  <p>Desarrollado por Alejo Monterroso · Montevideo, Uruguay · 2026</p>
+  <p>Alejo Monterroso · Automatización con IA · 2026</p>
 </footer>
 
 </body>
