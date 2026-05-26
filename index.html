@@ -28,7 +28,7 @@ body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);o
 .cursor.hover{width:48px;height:48px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.5rem 3rem;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 3rem;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:difference}
 .nav-brand{font-size:1.1rem;font-weight:900;letter-spacing:-1px;color:var(--white)}
 .nav-links{display:flex;gap:2.5rem;align-items:center}
 .nav-links a{text-decoration:none;color:var(--white);font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.7;transition:opacity .2s}
@@ -107,6 +107,8 @@ section{padding:8rem 3rem}
 .s-price-period{font-size:.75rem;color:var(--gray)}
 .s-arrow{position:absolute;top:2.5rem;right:2.5rem;width:36px;height:36px;border:1px solid #333;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:transform .3s,border-color .3s,background .3s}
 .servicio-card:hover .s-arrow{transform:rotate(45deg);border-color:#555;background:#111}
+.s-hint{font-size:.65rem;color:#444;margin-top:1rem;letter-spacing:1px}
+.servicio-card:hover .s-hint{color:#666}
 
 /* FEATURED PRODUCT */
 .featured-section{background:#0d0d0d;position:relative;overflow:hidden}
@@ -194,17 +196,39 @@ section{padding:8rem 3rem}
 .p-title{font-size:1rem;font-weight:800;margin-bottom:.5rem}
 .p-desc{font-size:.82rem;color:var(--gray);line-height:1.6}
 
-/* TESTIMONIOS */
-.testi-section{background:var(--black)}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
-.testi-card{background:#0d0d0d;border:1px solid #1e1e1e;border-radius:16px;padding:2rem;transition:border-color .3s}
-.testi-card:hover{border-color:#333}
-.testi-stars{color:var(--gold);font-size:.8rem;margin-bottom:1rem;letter-spacing:2px}
-.testi-text{font-size:.9rem;color:#ccc;line-height:1.8;margin-bottom:1.5rem;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:.8rem}
-.testi-av{width:36px;height:36px;border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-.testi-name{font-size:.82rem;font-weight:700}
-.testi-role{font-size:.72rem;color:var(--gray)}
+/* COMPARE SECTION */
+.compare-section{background:#050505;border-top:1px solid #111;border-bottom:1px solid #111}
+.compare-inner{max-width:1100px;margin:0 auto}
+.compare-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a1a1a;border:1px solid #1a1a1a;border-radius:16px;overflow:hidden;margin-top:4rem}
+.compare-col{background:#0d0d0d;padding:2rem 1.5rem;position:relative}
+.compare-col.highlight{background:#fff;color:#080808}
+.compare-col.highlight .c-price{color:#080808}
+.compare-col.highlight .c-name{color:#080808}
+.compare-col.highlight .c-feature{color:#080808;border-color:rgba(0,0,0,.1)}
+.compare-col.highlight .c-badge{background:#080808;color:#fff}
+.c-badge{display:inline-block;background:#1a1a1a;color:var(--gray);padding:.25rem .75rem;border-radius:50px;font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.2rem}
+.c-name{font-size:1.1rem;font-weight:900;margin-bottom:.4rem;color:var(--white)}
+.c-price{font-size:2rem;font-weight:900;letter-spacing:-1px;color:var(--white);margin-bottom:.3rem}
+.c-price-sub{font-size:.7rem;color:var(--gray);margin-bottom:1.5rem}
+.compare-col.highlight .c-price-sub{color:#666}
+.c-features{border-top:1px solid #222;padding-top:1.2rem;display:flex;flex-direction:column;gap:.6rem}
+.c-feature{font-size:.78rem;display:flex;align-items:center;gap:.5rem;color:var(--gray);padding-bottom:.6rem;border-bottom:1px solid #181818}
+.c-feature:last-child{border:none}
+.c-yes{color:var(--green);font-size:.9rem;flex-shrink:0}
+.c-no{color:#444;font-size:.9rem;flex-shrink:0}
+.compare-col.highlight .c-yes{color:#1db954}
+.compare-col.highlight .c-no{color:#bbb}
+.compare-col.highlight .c-feature{color:#333}
+.compare-note{margin-top:2rem;font-size:.78rem;color:#555;text-align:center}
+
+/* GARANTIA SECTION */
+.garantia-section{background:var(--black)}
+.garantia-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.garantia-card{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:16px;padding:2.5rem;transition:border-color .3s}
+.garantia-card:hover{border-color:#333}
+.g-icon{font-size:2rem;margin-bottom:1.2rem;display:block}
+.g-title{font-size:1.1rem;font-weight:900;margin-bottom:.8rem}
+.g-desc{font-size:.85rem;color:var(--gray);line-height:1.7}
 
 /* CTA FINAL */
 .cta-section{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 3rem;background:var(--black);position:relative;overflow:hidden}
@@ -216,9 +240,6 @@ section{padding:8rem 3rem}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn-border{border:1px solid #333;color:var(--white);padding:.9rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:.85rem;transition:border-color .2s,background .2s}
 .btn-border:hover{border-color:#555;background:#111}
-.cta-contact{margin-top:2rem;font-size:.82rem;color:#555}
-.cta-contact a{color:#888;text-decoration:none}
-.cta-contact a:hover{color:var(--white)}
 
 /* FOOTER */
 footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
@@ -227,6 +248,32 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
 .f-links a{color:#555;text-decoration:none;font-size:.75rem;letter-spacing:1px;transition:color .2s}
 .f-links a:hover{color:var(--white)}
 .f-copy{font-size:.72rem;color:#444}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:2rem;overflow-y:auto;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal-box{background:#0d0d0d;border:1px solid #222;border-radius:24px;max-width:720px;width:100%;margin:auto;padding:3rem;position:relative;animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;border:1px solid #333;background:none;border-radius:50%;color:var(--gray);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
+.modal-close:hover{border-color:#666;color:var(--white)}
+.modal-icon{font-size:3rem;margin-bottom:1rem;display:block}
+.modal-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:.5rem}
+.modal-title{font-size:2.2rem;font-weight:900;letter-spacing:-1px;margin-bottom:.5rem}
+.modal-price-line{font-size:.9rem;color:var(--gray);margin-bottom:2.5rem}
+.modal-price-line strong{color:var(--white)}
+.modal-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+.modal-block{background:#111;border-radius:12px;padding:1.5rem}
+.modal-block-title{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:1rem}
+.modal-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.modal-list li{font-size:.85rem;color:#ccc;display:flex;align-items:flex-start;gap:.6rem;line-height:1.5}
+.modal-list li::before{content:'✓';color:var(--green);font-size:.8rem;flex-shrink:0;margin-top:.15rem}
+.modal-list li.need::before{content:'→';color:var(--gold)}
+.modal-note{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:1rem 1.2rem;font-size:.82rem;color:#d4a017;line-height:1.6;margin-bottom:2rem}
+.modal-cta{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.modal-timeline{font-size:.8rem;color:var(--gray)}
+.modal-timeline strong{color:var(--white)}
+
+@media(max-width:600px){.modal-cols{grid-template-columns:1fr}.modal-box{padding:2rem}}
 
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem}
@@ -239,7 +286,8 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .proceso-steps{grid-template-columns:repeat(2,1fr)}
   .proceso-steps::before{display:none}
-  .testi-grid{grid-template-columns:1fr}
+  .garantia-grid{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:1rem;text-align:center}
 }
 </style>
@@ -254,7 +302,7 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   <div class="nav-links">
     <a href="#servicios">Servicios</a>
     <a href="#whatsapp">WhatsApp Bot</a>
-    <a href="#trading">Trading</a>
+    <a href="#compare">Comparativa</a>
     <a href="#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20una%20demo" class="nav-cta" target="_blank">Demo gratis</a>
@@ -267,7 +315,7 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   <div class="hero-content">
     <div class="hero-eyebrow">Automatización · Inteligencia Artificial · Resultados</div>
     <h1 class="hero-h1">Tu negocio<br><em>trabaja solo.</em></h1>
-    <p class="hero-sub">Bots de WhatsApp, trading automatizado, dashboards de mercado y más. Tecnología de punta para negocios que quieren crecer.</p>
+    <p class="hero-sub">Soy de Montevideo. Construyo bots de WhatsApp, trading automatizado, dashboards de mercado y más — con la misma IA que usan las grandes empresas, a un precio que tiene sentido.</p>
     <div class="hero-actions">
       <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20una%20demo" class="btn-primary" target="_blank">Quiero una demo →</a>
       <a href="#servicios" class="btn-ghost">Ver servicios ↓</a>
@@ -300,8 +348,8 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
 <!-- STATS -->
 <div class="stats-strip">
   <div class="stats-inner">
-    <div class="reveal"><div class="stat-n">73+</div><div class="stat-l">Empresas contactadas</div></div>
-    <div class="reveal reveal-delay-1"><div class="stat-n">6</div><div class="stat-l">Países</div></div>
+    <div class="reveal"><div class="stat-n">120+</div><div class="stat-l">Empresas contactadas</div></div>
+    <div class="reveal reveal-delay-1"><div class="stat-n">16</div><div class="stat-l">Países alcanzados</div></div>
     <div class="reveal reveal-delay-2"><div class="stat-n">24/7</div><div class="stat-l">Disponibilidad</div></div>
     <div class="reveal reveal-delay-3"><div class="stat-n">48h</div><div class="stat-l">Tiempo de entrega</div></div>
   </div>
@@ -312,37 +360,39 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   <div class="section-inner">
     <div class="eyebrow reveal">Lo que ofrezco</div>
     <h2 class="big-title reveal reveal-delay-1">Seis servicios.<br>Un solo objetivo.</h2>
-    <p class="lead reveal reveal-delay-2">Automatizar todo lo que te roba tiempo y dinero.</p>
+    <p class="lead reveal reveal-delay-2">Automatizar todo lo que te roba tiempo y dinero. Hacé clic en cualquier servicio para ver exactamente qué incluye.</p>
   </div>
   <div class="servicios-grid reveal" style="max-width:1200px;margin:5rem auto 0">
 
-    <div class="servicio-card s-green">
+    <div class="servicio-card s-green" onclick="openModal('modal-whatsapp')">
       <div class="s-arrow">↗</div>
       <div class="s-num">01</div>
       <span class="s-icon">💬</span>
       <div class="s-title">Bot de WhatsApp</div>
-      <p class="s-desc">Tu negocio responde solo las 24 horas. Reservas, preguntas, horarios y más — sin que tu equipo tenga que contestar a mano.</p>
+      <p class="s-desc">Tu negocio responde solo las 24 horas. Reservas, preguntas, horarios — sin que tu equipo tenga que contestar a mano.</p>
       <span class="s-tag tag-green">Más popular</span>
       <div class="s-price">
         <div class="s-price-label">Desde</div>
         <div class="s-price-val">U$S 150 <span class="s-price-period">/mes</span></div>
       </div>
+      <div class="s-hint">Clic para ver qué incluye →</div>
     </div>
 
-    <div class="servicio-card s-purple">
+    <div class="servicio-card s-purple" onclick="openModal('modal-trading')">
       <div class="s-arrow">↗</div>
       <div class="s-num">02</div>
       <span class="s-icon">📈</span>
       <div class="s-title">Bot de Trading</div>
-      <p class="s-desc">Grid trading en Binance con gestión de riesgo automática. Tu dinero trabaja mientras dormís.</p>
+      <p class="s-desc">Grid trading en Binance con gestión de riesgo automática. El bot compra barato y vende caro mientras dormís.</p>
       <span class="s-tag tag-purple">Ingresos pasivos</span>
       <div class="s-price">
         <div class="s-price-label">Setup</div>
         <div class="s-price-val">U$S 300 <span class="s-price-period">+ 20% ganancias</span></div>
       </div>
+      <div class="s-hint">Clic para ver qué incluye →</div>
     </div>
 
-    <div class="servicio-card s-blue">
+    <div class="servicio-card s-blue" onclick="openModal('modal-inmobiliario')">
       <div class="s-arrow">↗</div>
       <div class="s-num">03</div>
       <span class="s-icon">🏢</span>
@@ -353,49 +403,327 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
         <div class="s-price-label">Desde</div>
         <div class="s-price-val">U$S 200 <span class="s-price-period">/mes</span></div>
       </div>
+      <div class="s-hint">Clic para ver qué incluye →</div>
     </div>
 
-    <div class="servicio-card s-gold">
+    <div class="servicio-card s-gold" onclick="openModal('modal-redes')">
       <div class="s-arrow">↗</div>
       <div class="s-num">04</div>
       <span class="s-icon">📱</span>
       <div class="s-title">Automatización de Redes</div>
-      <p class="s-desc">Posts automáticos en Instagram y LinkedIn. Respuestas a comentarios y DMs con IA. Más presencia, menos trabajo.</p>
-      <span class="s-tag tag-gold">Nuevo</span>
+      <p class="s-desc">IA que genera el contenido de tu Instagram y LinkedIn. Vos aprobás cada post antes de que salga — siempre en control.</p>
+      <span class="s-tag tag-gold">Contenido con IA</span>
       <div class="s-price">
         <div class="s-price-label">Desde</div>
         <div class="s-price-val">U$S 120 <span class="s-price-period">/mes</span></div>
       </div>
+      <div class="s-hint">Clic para ver qué incluye →</div>
     </div>
 
-    <div class="servicio-card s-red">
+    <div class="servicio-card s-red" onclick="openModal('modal-chatbot')">
       <div class="s-arrow">↗</div>
       <div class="s-num">05</div>
       <span class="s-icon">🌐</span>
       <div class="s-title">Chatbot para tu Web</div>
-      <p class="s-desc">Un asistente de IA incrustado en tu sitio web que responde preguntas, captura leads y agenda citas automáticamente.</p>
+      <p class="s-desc">Un asistente de IA incrustado en tu sitio web. Responde preguntas, captura leads y agenda citas automáticamente.</p>
       <span class="s-tag tag-red">Alta conversión</span>
       <div class="s-price">
         <div class="s-price-label">Desde</div>
         <div class="s-price-val">U$S 100 <span class="s-price-period">/mes</span></div>
       </div>
+      <div class="s-hint">Clic para ver qué incluye →</div>
     </div>
 
-    <div class="servicio-card s-white">
+    <div class="servicio-card s-white" onclick="openModal('modal-analisis')">
       <div class="s-arrow">↗</div>
       <div class="s-num">06</div>
       <span class="s-icon">📊</span>
       <div class="s-title">Análisis de Datos</div>
-      <p class="s-desc">Scraping y análisis automático de tu competencia, mercado o industria. Reportes semanales con insights accionables.</p>
+      <p class="s-desc">Scraping y análisis automático de tu competencia, mercado o industria. Reportes con insights accionables.</p>
       <span class="s-tag tag-white">A medida</span>
       <div class="s-price">
         <div class="s-price-label">Desde</div>
-        <div class="s-price-val">U$S 250 <span class="s-price-period">único pago</span></div>
+        <div class="s-price-val">U$S 250 <span class="s-price-period">primer paquete</span></div>
       </div>
+      <div class="s-hint">Clic para ver qué incluye →</div>
     </div>
 
   </div>
 </section>
+
+<!-- ===== MODALS ===== -->
+
+<!-- MODAL 1: WhatsApp Bot -->
+<div class="modal-overlay" id="modal-whatsapp" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-whatsapp')">✕</button>
+    <span class="modal-icon">💬</span>
+    <div class="modal-eyebrow">Servicio 01</div>
+    <div class="modal-title">Bot de WhatsApp</div>
+    <div class="modal-price-line">Desde <strong>U$S 150/mes</strong> · Incluye hosting, API de IA y soporte técnico</div>
+    <div class="modal-cols">
+      <div class="modal-block">
+        <div class="modal-block-title">Qué incluye exactamente</div>
+        <ul class="modal-list">
+          <li>Bot configurado con tu info: servicios, precios, horarios y ubicación</li>
+          <li>Responde preguntas frecuentes con IA real (Claude de Anthropic)</li>
+          <li>Gestión de reservas: el cliente elige fecha/hora, el bot confirma</li>
+          <li>Te notifica por WhatsApp cuando hay una reserva confirmada</li>
+          <li>Panel de administración web: historial de conversaciones y estadísticas</li>
+          <li>Manejo de horarios de atención (no responde fuera del horario configurado)</li>
+          <li>Soporte técnico y ajustes sin costo adicional</li>
+        </ul>
+      </div>
+      <div class="modal-block">
+        <div class="modal-block-title">Qué necesito de vos</div>
+        <ul class="modal-list">
+          <li class="need">Número de WhatsApp Business activo</li>
+          <li class="need">Información de tu negocio: servicios, precios, horarios, ubicación</li>
+          <li class="need">Preguntas frecuentes que recibís habitualmente</li>
+        </ul>
+        <div style="margin-top:1.2rem">
+          <div class="modal-block-title">Plataformas compatibles</div>
+          <ul class="modal-list" style="margin-top:.5rem">
+            <li>WhatsApp Business (principal)</li>
+            <li>Acceso web al panel de admin desde cualquier dispositivo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-note">⚡ El bot usa la IA de Anthropic (Claude), la misma tecnología detrás de ChatGPT pero más precisa para atención al cliente. No es un chatbot de respuestas predefinidas — entiende el lenguaje natural de tus clientes.</div>
+    <div class="modal-cta">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20bot%20de%20WhatsApp" class="btn-green" target="_blank">Ver demo gratis →</a>
+      <span class="modal-timeline">Listo en <strong>24-48 horas</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: Trading -->
+<div class="modal-overlay" id="modal-trading" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-trading')">✕</button>
+    <span class="modal-icon">📈</span>
+    <div class="modal-eyebrow">Servicio 02</div>
+    <div class="modal-title">Bot de Trading</div>
+    <div class="modal-price-line"><strong>U$S 300</strong> setup + <strong>20% de ganancias mensuales</strong> · Sin ganancia, sin cobro</div>
+    <div class="modal-cols">
+      <div class="modal-block">
+        <div class="modal-block-title">Qué incluye exactamente</div>
+        <ul class="modal-list">
+          <li>Script de grid trading configurado para Binance</li>
+          <li>Estrategia a medida: par de trading, capital, rangos de precio y cantidad de grids</li>
+          <li>Setup completo en tu cuenta de Binance (vos mantenés el control total)</li>
+          <li>Explicación completa de cómo funciona cada parámetro</li>
+          <li>Monitoreo de órdenes y reporte de ganancia en tiempo real</li>
+          <li>Ajuste de parámetros si el mercado cambia mucho</li>
+        </ul>
+      </div>
+      <div class="modal-block">
+        <div class="modal-block-title">Qué necesito de vos</div>
+        <ul class="modal-list">
+          <li class="need">Cuenta en Binance verificada</li>
+          <li class="need">Mínimo U$S 50 en USDT disponible en Spot</li>
+          <li class="need">API keys de Binance (te explico cómo crearlas)</li>
+        </ul>
+        <div style="margin-top:1.2rem">
+          <div class="modal-block-title">Cómo funciona la estrategia</div>
+          <ul class="modal-list" style="margin-top:.5rem">
+            <li>El bot divide tu capital en rangos de precio (grids)</li>
+            <li>Compra cuando el precio baja a un nivel, vende cuando sube</li>
+            <li>Genera ganancias con la volatilidad normal del mercado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-note">⚠️ Aviso importante: el trading siempre implica riesgo. La estrategia grid reduce el riesgo operando en rangos definidos, pero no garantiza ganancias. Solo invertí lo que estés dispuesto a arriesgar. Mi comisión es 20% de las ganancias reales — si no hay ganancia, no cobro nada.</div>
+    <div class="modal-cta">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20el%20bot%20de%20trading" class="btn-green" target="_blank">Me interesa →</a>
+      <span class="modal-timeline">Setup en <strong>24 horas</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: Dashboard Inmobiliario -->
+<div class="modal-overlay" id="modal-inmobiliario" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-inmobiliario')">✕</button>
+    <span class="modal-icon">🏢</span>
+    <div class="modal-eyebrow">Servicio 03</div>
+    <div class="modal-title">Dashboard Inmobiliario</div>
+    <div class="modal-price-line">Desde <strong>U$S 200/mes</strong> · Incluye actualizaciones semanales automáticas</div>
+    <div class="modal-cols">
+      <div class="modal-block">
+        <div class="modal-block-title">Qué incluye exactamente</div>
+        <ul class="modal-list">
+          <li>Dashboard web con datos actualizados del mercado inmobiliario de tu zona</li>
+          <li>Scraping automático semanal de portales como InfoCasas</li>
+          <li>Filtros por zona, precio, tipo de propiedad y m²</li>
+          <li>Detección automática de oportunidades (propiedades bajo precio de mercado)</li>
+          <li>Generador de reportes PDF con el logo de tu empresa</li>
+          <li>Acceso web desde cualquier dispositivo, sin instalar nada</li>
+          <li>Gráficos de evolución de precios por zona</li>
+        </ul>
+      </div>
+      <div class="modal-block">
+        <div class="modal-block-title">Qué necesito de vos</div>
+        <ul class="modal-list">
+          <li class="need">Zona(s) de mercado a analizar (ej: Punta del Este, Pocitos)</li>
+          <li class="need">Logo de tu empresa para los reportes PDF</li>
+          <li class="need">Filtros específicos de interés (rango de precios, tipos de propiedades)</li>
+        </ul>
+        <div style="margin-top:1.2rem">
+          <div class="modal-block-title">Ejemplo real</div>
+          <ul class="modal-list" style="margin-top:.5rem">
+            <li>2,852 propiedades analizadas en Punta del Este/Maldonado</li>
+            <li>38 zonas mapeadas</li>
+            <li>Precio mediano actual: U$S 2,850/m²</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-note">📊 Este dashboard ya existe y está funcionando. Puedo mostrarte una demo en vivo con datos reales del mercado antes de que decidas.</div>
+    <div class="modal-cta">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20dashboard%20inmobiliario" class="btn-green" target="_blank">Ver demo en vivo →</a>
+      <span class="modal-timeline">Listo en <strong>48-72 horas</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: Redes Sociales -->
+<div class="modal-overlay" id="modal-redes" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-redes')">✕</button>
+    <span class="modal-icon">📱</span>
+    <div class="modal-eyebrow">Servicio 04</div>
+    <div class="modal-title">Automatización de Redes</div>
+    <div class="modal-price-line">Desde <strong>U$S 120/mes</strong> · 20-30 posts generados con IA por mes</div>
+    <div class="modal-cols">
+      <div class="modal-block">
+        <div class="modal-block-title">Qué incluye exactamente</div>
+        <ul class="modal-list">
+          <li>Generación de 20-30 posts al mes con IA (Instagram y LinkedIn)</li>
+          <li>Contenido personalizado con el tono y estilo de tu marca</li>
+          <li>Hashtags optimizados para cada plataforma</li>
+          <li>Sugerencia de imagen o concepto visual para cada post</li>
+          <li>Calendario mensual de publicación (qué publicar y cuándo)</li>
+          <li>Panel de aprobación: ves cada post antes de que se publique</li>
+          <li>Ajustes si algún post no te convence (vos siempre tenés la última palabra)</li>
+        </ul>
+      </div>
+      <div class="modal-block">
+        <div class="modal-block-title">Qué necesito de vos</div>
+        <ul class="modal-list">
+          <li class="need">Info de tu negocio: producto/servicio, tono de comunicación</li>
+          <li class="need">Acceso a tus cuentas de Instagram y/o LinkedIn para publicar</li>
+          <li class="need">Temas o fechas importantes del mes (promociones, eventos)</li>
+        </ul>
+        <div style="margin-top:1.2rem">
+          <div class="modal-block-title">Cómo funciona</div>
+          <ul class="modal-list" style="margin-top:.5rem">
+            <li>La IA genera el contenido cada mes</li>
+            <li>Vos aprobás cada post en un panel simple</li>
+            <li>Yo publico los aprobados en tus cuentas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-note">✅ El sistema genera el contenido pero vos siempre aprobás antes de publicar. No sale nada sin tu OK — así mantenés el control total de tu marca.</div>
+    <div class="modal-cta">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20la%20automatizaci%C3%B3n%20de%20redes" class="btn-green" target="_blank">Me interesa →</a>
+      <span class="modal-timeline">Primera tanda en <strong>48 horas</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: Chatbot Web -->
+<div class="modal-overlay" id="modal-chatbot" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-chatbot')">✕</button>
+    <span class="modal-icon">🌐</span>
+    <div class="modal-eyebrow">Servicio 05</div>
+    <div class="modal-title">Chatbot para tu Web</div>
+    <div class="modal-price-line">Desde <strong>U$S 100/mes</strong> · Incluye hosting, IA y panel de leads</div>
+    <div class="modal-cols">
+      <div class="modal-block">
+        <div class="modal-block-title">Qué incluye exactamente</div>
+        <ul class="modal-list">
+          <li>Widget de chat embebido en tu sitio web (una sola línea de código)</li>
+          <li>Responde preguntas con IA basada en la información de tu negocio</li>
+          <li>Captura de leads: nombre, email y teléfono del visitante</li>
+          <li>Te notifica por email o WhatsApp cuando hay un lead nuevo</li>
+          <li>Panel de administración: todos los leads y conversaciones en un lugar</li>
+          <li>Diseño adaptable a los colores de tu marca</li>
+          <li>Compatible con cualquier sitio web (WordPress, Wix, custom, etc.)</li>
+        </ul>
+      </div>
+      <div class="modal-block">
+        <div class="modal-block-title">Qué necesito de vos</div>
+        <ul class="modal-list">
+          <li class="need">URL de tu sitio web</li>
+          <li class="need">Información del negocio: servicios, preguntas frecuentes</li>
+          <li class="need">Email o WhatsApp donde recibir notificaciones de leads</li>
+        </ul>
+        <div style="margin-top:1.2rem">
+          <div class="modal-block-title">Cómo se instala</div>
+          <ul class="modal-list" style="margin-top:.5rem">
+            <li>Te doy 2 líneas de código para pegar en tu web</li>
+            <li>El chat aparece automáticamente en todas las páginas</li>
+            <li>Sin plugins ni instalaciones complicadas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-note">💡 Los visitantes de tu web que no encuentran lo que buscan se van sin contactarte. Este chatbot los atrapa en el momento y convierte visitas en leads reales.</div>
+    <div class="modal-cta">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20el%20chatbot%20para%20mi%20web" class="btn-green" target="_blank">Me interesa →</a>
+      <span class="modal-timeline">Listo en <strong>24-48 horas</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 6: Análisis de Datos -->
+<div class="modal-overlay" id="modal-analisis" onclick="closeOnOverlay(event,this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-analisis')">✕</button>
+    <span class="modal-icon">📊</span>
+    <div class="modal-eyebrow">Servicio 06</div>
+    <div class="modal-title">Análisis de Datos</div>
+    <div class="modal-price-line">Desde <strong>U$S 250</strong> — incluye 3 reportes · Suscripción mensual disponible</div>
+    <div class="modal-cols">
+      <div class="modal-block">
+        <div class="modal-block-title">Qué incluye exactamente</div>
+        <ul class="modal-list">
+          <li>Scraping de hasta 5 URLs (competencia, portales, mercados)</li>
+          <li>Análisis con IA: qué ofrecen, a qué precios, cómo se posicionan</li>
+          <li>Reporte PDF profesional: resumen ejecutivo, insights principales y recomendaciones</li>
+          <li>3 reportes incluidos en el paquete inicial</li>
+          <li>Posibilidad de reporte recurrente mensual</li>
+        </ul>
+      </div>
+      <div class="modal-block">
+        <div class="modal-block-title">Qué necesito de vos</div>
+        <ul class="modal-list">
+          <li class="need">URLs a analizar (sitios de competencia, portales, etc.)</li>
+          <li class="need">Contexto: qué industria, qué querés saber específicamente</li>
+          <li class="need">Nombre de tu empresa para el encabezado del reporte</li>
+        </ul>
+        <div style="margin-top:1.2rem">
+          <div class="modal-block-title">Ejemplos de uso</div>
+          <ul class="modal-list" style="margin-top:.5rem">
+            <li>Análisis de precios de competidores (restaurantes, servicios, productos)</li>
+            <li>Mercado inmobiliario de una zona</li>
+            <li>Tendencias de una industria específica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-note">📋 El reporte incluye un resumen ejecutivo + lista de insights + recomendaciones concretas. Formato PDF listo para presentar a tu equipo o inversores.</div>
+    <div class="modal-cta">
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20un%20an%C3%A1lisis%20de%20datos" class="btn-green" target="_blank">Quiero un análisis →</a>
+      <span class="modal-timeline">Primer reporte en <strong>48-72 horas</strong></span>
+    </div>
+  </div>
+</div>
 
 <!-- FEATURED: WHATSAPP BOT -->
 <section class="featured-section" id="whatsapp">
@@ -403,13 +731,13 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
     <div class="reveal">
       <div class="featured-label">⭐ Más popular</div>
       <h2 class="featured-title">Bot de<br>WhatsApp<br>con IA</h2>
-      <p class="featured-desc">Configurado con la información de tu negocio. Responde como una persona real de tu equipo — reservas, precios, horarios y más.</p>
+      <p class="featured-desc">Configurado con la información de tu negocio. Responde como una persona real de tu equipo — reservas, precios, horarios y más. Sin templates fijos: entiende lenguaje natural.</p>
       <div class="feature-list">
         <div class="feature-item"><div class="feature-check">✓</div>Disponible las 24 horas, los 7 días</div>
-        <div class="feature-item"><div class="feature-check">✓</div>Gestión de reservas y turnos</div>
+        <div class="feature-item"><div class="feature-check">✓</div>Gestión de reservas y turnos con confirmación</div>
         <div class="feature-item"><div class="feature-check">✓</div>Te notifica cada reserva por WhatsApp</div>
         <div class="feature-item"><div class="feature-check">✓</div>Panel de conversaciones y estadísticas</div>
-        <div class="feature-item"><div class="feature-check">✓</div>Listo en 48 horas</div>
+        <div class="feature-item"><div class="feature-check">✓</div>Listo en 24-48 horas</div>
       </div>
       <div class="featured-cta">
         <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20bot%20de%20WhatsApp" class="btn-green" target="_blank">Ver demo gratis →</a>
@@ -440,6 +768,71 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   </div>
 </section>
 
+<!-- COMPARE -->
+<section class="compare-section" id="compare">
+  <div class="compare-inner">
+    <div class="eyebrow reveal">Comparativa de mercado</div>
+    <h2 class="big-title reveal reveal-delay-1">El mercado<br>cobra de más.</h2>
+    <p class="lead reveal reveal-delay-2">Misma tecnología que usan las grandes empresas. Sin agencias intermediarias. Sin contratos de 12 meses.</p>
+
+    <div class="compare-grid reveal" style="margin-top:4rem">
+      <div class="compare-col">
+        <div class="c-badge">ManyChat / WATI</div>
+        <div class="c-name">Plataformas SaaS</div>
+        <div class="c-price">$99<span style="font-size:1rem;font-weight:500">/mes</span></div>
+        <div class="c-price-sub">Hasta $300/mes en planes pro</div>
+        <div class="c-features">
+          <div class="c-feature"><span class="c-no">✗</span>Sin IA real — respuestas por árbol de decisiones</div>
+          <div class="c-feature"><span class="c-no">✗</span>Templates fijos, no entienden lenguaje natural</div>
+          <div class="c-feature"><span class="c-yes">✓</span>WhatsApp disponible</div>
+          <div class="c-feature"><span class="c-no">✗</span>Sin personalización — igual para todos</div>
+          <div class="c-feature"><span class="c-no">✗</span>Sin panel de administración propio</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="c-badge">Tidio / Intercom</div>
+        <div class="c-name">Chatbots Web</div>
+        <div class="c-price">$50<span style="font-size:1rem;font-weight:500">/mes</span></div>
+        <div class="c-price-sub">Hasta $999/mes (Intercom)</div>
+        <div class="c-features">
+          <div class="c-feature"><span class="c-no">✗</span>Solo para web — sin WhatsApp</div>
+          <div class="c-feature"><span class="c-no">✗</span>IA limitada o de pago extra</div>
+          <div class="c-feature"><span class="c-yes">✓</span>Interfaz bonita</div>
+          <div class="c-feature"><span class="c-no">✗</span>Sin personalización del negocio</div>
+          <div class="c-feature"><span class="c-no">✗</span>Costoso para negocios pequeños</div>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="c-badge">Agencia digital</div>
+        <div class="c-name">Desarrollo a medida</div>
+        <div class="c-price">$2,000<span style="font-size:1rem;font-weight:500"> setup</span></div>
+        <div class="c-price-sub">+ $500/mes mantenimiento</div>
+        <div class="c-features">
+          <div class="c-feature"><span class="c-yes">✓</span>Completamente personalizado</div>
+          <div class="c-feature"><span class="c-no">✗</span>Meses de desarrollo — no hay urgencia</div>
+          <div class="c-feature"><span class="c-no">✗</span>Muy caro para mayoría de negocios</div>
+          <div class="c-feature"><span class="c-no">✗</span>Cambios pequeños = facturas grandes</div>
+          <div class="c-feature"><span class="c-no">✗</span>Dependés de ellos para todo</div>
+        </div>
+      </div>
+      <div class="compare-col highlight">
+        <div class="c-badge">★ AM·IA</div>
+        <div class="c-name">IA real · Personalizado</div>
+        <div class="c-price">$100<span style="font-size:1rem;font-weight:500">/mes</span></div>
+        <div class="c-price-sub">WhatsApp desde $150 · Web desde $100</div>
+        <div class="c-features">
+          <div class="c-feature"><span class="c-yes">✓</span>IA real (Claude de Anthropic) — entiende cualquier pregunta</div>
+          <div class="c-feature"><span class="c-yes">✓</span>100% personalizado con tu información</div>
+          <div class="c-feature"><span class="c-yes">✓</span>WhatsApp + Web en el mismo paquete</div>
+          <div class="c-feature"><span class="c-yes">✓</span>Panel de admin incluido</div>
+          <div class="c-feature"><span class="c-yes">✓</span>Listo en 48 horas — sin contratos</div>
+        </div>
+      </div>
+    </div>
+    <p class="compare-note reveal">Precios de referencia consultados en mayo 2026. ManyChat Pro: $169/mes · WATI Business: $99/mes · Intercom Essential: $39/agente/mes · Agencias estimado según cotizaciones de mercado.</p>
+  </div>
+</section>
+
 <!-- TRADING -->
 <section class="trading-section" id="trading">
   <div class="trading-inner">
@@ -467,12 +860,12 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
     <div class="reveal reveal-delay-2">
       <div class="eyebrow">Trading Automatizado</div>
       <h2 class="big-title">Tu dinero<br>trabaja solo.</h2>
-      <p class="lead" style="margin-bottom:2rem">Grid trading en Binance. El bot compra barato y vende caro automáticamente, las 24 horas, sin que tengas que mirar los gráficos.</p>
+      <p class="lead" style="margin-bottom:2rem">Grid trading en Binance. El bot compra barato y vende caro automáticamente, las 24 horas. Sin que tengas que mirar los gráficos. Sin que yo toque tu dinero.</p>
       <div class="feature-list">
-        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Estrategia Grid Trading probada</div>
-        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Stop-loss y gestión de riesgo</div>
-        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Funciona desde U$S 50</div>
-        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Reportes de ganancia en tiempo real</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Estrategia Grid Trading — funciona con volatilidad normal</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Tu cuenta, tus claves, tu control total</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Funciona desde U$S 50 en Binance</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--purple)">✓</div>Solo cobro el 20% de las ganancias reales</div>
       </div>
       <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20el%20bot%20de%20trading" class="btn-border" target="_blank" style="display:inline-block;margin-top:1rem">Me interesa →</a>
     </div>
@@ -485,14 +878,14 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
     <div class="reveal">
       <div class="eyebrow">Dashboard Inmobiliario</div>
       <h2 class="big-title">Inteligencia<br>de mercado<br>real.</h2>
-      <p class="lead" style="margin-bottom:2rem">Datos actualizados semanalmente. Precios por zona, oportunidades de inversión, mapas interactivos y reportes PDF con tu marca.</p>
+      <p class="lead" style="margin-bottom:2rem">Datos actualizados semanalmente. Precios por zona, oportunidades de inversión, mapas interactivos y reportes PDF con tu marca. Ya funcionando.</p>
       <div class="feature-list">
-        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>2,852+ propiedades analizadas</div>
-        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>Detección automática de oportunidades</div>
-        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>Reportes PDF con tu logo</div>
-        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>Actualización automática semanal</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>2,852+ propiedades analizadas (ejemplo: Punta del Este)</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>Detección automática de oportunidades bajo mercado</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>Reportes PDF con tu logo listos para clientes</div>
+        <div class="feature-item"><div class="feature-check" style="background:var(--blue)">✓</div>Actualización automática semanal sin trabajo manual</div>
       </div>
-      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20info%20sobre%20el%20dashboard%20inmobiliario" class="btn-border" target="_blank" style="display:inline-block;margin-top:1rem">Quiero una demo →</a>
+      <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20ver%20la%20demo%20del%20dashboard%20inmobiliario" class="btn-border" target="_blank" style="display:inline-block;margin-top:1rem">Quiero ver la demo →</a>
     </div>
     <div class="reveal reveal-delay-2">
       <div class="inmob-mock">
@@ -533,56 +926,48 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
       <div class="p-step reveal">
         <div class="p-num">01</div>
         <div class="p-title">Me contactás</div>
-        <p class="p-desc">Por WhatsApp o email. Te muestro una demo sin costo ni compromiso.</p>
+        <p class="p-desc">Por WhatsApp o email. Te muestro una demo sin costo ni compromiso. Sin venderte nada que no necesitás.</p>
       </div>
       <div class="p-step reveal reveal-delay-1">
         <div class="p-num">02</div>
         <div class="p-title">Elegís el servicio</div>
-        <p class="p-desc">Analizamos qué necesita tu negocio y acordamos los detalles.</p>
+        <p class="p-desc">Analizamos qué necesita tu negocio. Te explico exactamente qué vas a recibir antes de pagar.</p>
       </div>
       <div class="p-step reveal reveal-delay-2">
         <div class="p-num">03</div>
         <div class="p-title">Configuramos todo</div>
-        <p class="p-desc">En 48 horas está listo, personalizado y funcionando en producción.</p>
+        <p class="p-desc">En 48 horas está listo, personalizado con tu información y funcionando en producción.</p>
       </div>
       <div class="p-step reveal reveal-delay-3">
         <div class="p-num">04</div>
-        <div class="p-title">Resultados reales</div>
-        <p class="p-desc">Tu negocio trabaja solo. Vos te enfocás en crecer.</p>
+        <div class="p-title">Seguimiento incluido</div>
+        <p class="p-desc">Soporte técnico, ajustes y mejoras sin costo extra. No desaparezco después de la entrega.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
-<section class="testi-section">
+<!-- GARANTIA (reemplaza testimonios falsos) -->
+<section class="garantia-section">
   <div class="section-inner">
-    <div class="eyebrow reveal">Lo que dicen</div>
-    <h2 class="big-title reveal reveal-delay-1">Resultados<br>reales.</h2>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"El bot de WhatsApp nos cambió la vida. Antes perdíamos clientes por no responder rápido. Ahora responde solo y las reservas subieron un 40%."</p>
-        <div class="testi-author">
-          <div class="testi-av">🍕</div>
-          <div><div class="testi-name">Equipo Fundamento Pizza</div><div class="testi-role">Restaurante · Montevideo</div></div>
-        </div>
+    <div class="eyebrow reveal">Mi compromiso</div>
+    <h2 class="big-title reveal reveal-delay-1">Sin resultados,<br>sin pago.</h2>
+    <p class="lead reveal reveal-delay-2">No tengo 1,000 clientes ni testimonios de empresas famosas. Tengo honestidad, trabajo real y estas garantías.</p>
+    <div class="garantia-grid">
+      <div class="garantia-card reveal">
+        <span class="g-icon">🎯</span>
+        <div class="g-title">Demo antes de pagar</div>
+        <p class="g-desc">Ves el servicio funcionando con la información de tu negocio antes de comprometerte a nada. Sin trucos, sin presión.</p>
       </div>
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"El dashboard inmobiliario nos permite mostrar datos reales a los clientes. Nuestros cierres de venta mejoraron notablemente desde que lo implementamos."</p>
-        <div class="testi-author">
-          <div class="testi-av">🏢</div>
-          <div><div class="testi-name">Xukah Real Estate</div><div class="testi-role">Inmobiliaria · Punta del Este</div></div>
-        </div>
+      <div class="garantia-card reveal reveal-delay-1">
+        <span class="g-icon">⏱️</span>
+        <div class="g-title">48 horas o ajustamos</div>
+        <p class="g-desc">Si el servicio no está listo y funcionando en 48 horas según lo acordado, trabajamos sin cargo hasta que esté perfecto.</p>
       </div>
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Estamos probando el bot de trading y la estrategia es sólida. Lo mejor es que corre solo sin que tengamos que estar mirando el mercado."</p>
-        <div class="testi-author">
-          <div class="testi-av">📈</div>
-          <div><div class="testi-name">Cliente privado</div><div class="testi-role">Trading · Uruguay</div></div>
-        </div>
+      <div class="garantia-card reveal reveal-delay-2">
+        <span class="g-icon">🔓</span>
+        <div class="g-title">Sin contratos de permanencia</div>
+        <p class="g-desc">Cancelás cuando querés. No hay contratos de 6 o 12 meses. Si el servicio no te sirve, no tiene sentido que sigas pagando.</p>
       </div>
     </div>
   </div>
@@ -597,9 +982,9 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
       <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20una%20demo" class="btn-primary" target="_blank">💬 Escribir por WhatsApp</a>
       <a href="mailto:alejomonterrosop@gmail.com" class="btn-border">📧 Enviar email</a>
     </div>
-    <p class="cta-contact" style="margin-top:2rem">
-      <a href="mailto:alejomonterrosop@gmail.com">alejomonterrosop@gmail.com</a> ·
-      <a href="tel:+59895047981">+598 95 047 981</a> · Montevideo, Uruguay
+    <p style="margin-top:2rem;font-size:.82rem;color:#555">
+      <a href="mailto:alejomonterrosop@gmail.com" style="color:#888;text-decoration:none">alejomonterrosop@gmail.com</a> ·
+      <a href="tel:+59895047981" style="color:#888;text-decoration:none">+598 95 047 981</a> · Montevideo, Uruguay
     </p>
   </div>
 </section>
@@ -609,10 +994,10 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   <div class="f-links">
     <a href="#servicios">Servicios</a>
     <a href="#whatsapp">WhatsApp Bot</a>
-    <a href="#trading">Trading</a>
+    <a href="#compare">Comparativa</a>
     <a href="#contacto">Contacto</a>
   </div>
-  <div class="f-copy">© 2026 Alejo Monterroso</div>
+  <div class="f-copy">© 2026 Alejo Monterroso · Montevideo, Uruguay</div>
 </footer>
 
 <script>
@@ -632,6 +1017,30 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Modal logic
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e, overlay) {
+  if (e.target === overlay) {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(m => {
+      m.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+});
 </script>
 </body>
 </html>
