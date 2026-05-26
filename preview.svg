@@ -1,0 +1,39 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#080808"/>
+  <rect width="1200" height="630" fill="url(#grad)"/>
+  <defs>
+    <radialGradient id="grad" cx="70%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+  </defs>
+  <!-- Glow -->
+  <circle cx="900" cy="300" r="300" fill="rgba(0,87,255,0.08)"/>
+  <circle cx="200" cy="500" r="200" fill="rgba(29,185,84,0.06)"/>
+  <!-- Top label -->
+  <text x="80" y="120" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="6" fill="#555" text-anchor="start">AUTOMATIZACIÓN · IA · MONTEVIDEO</text>
+  <!-- Main heading -->
+  <text x="80" y="230" font-family="Inter, Arial, sans-serif" font-size="96" font-weight="900" fill="white" letter-spacing="-4">Tu negocio</text>
+  <text x="80" y="340" font-family="Inter, Arial, sans-serif" font-size="96" font-weight="900" fill="#555" letter-spacing="-4" font-style="italic">trabaja solo.</text>
+  <!-- Subtitle -->
+  <text x="80" y="420" font-family="Inter, Arial, sans-serif" font-size="24" fill="#666">Bots de WhatsApp · Trading · Dashboards · IA a medida</text>
+  <!-- Price tags -->
+  <rect x="80" y="460" width="180" height="44" rx="22" fill="rgba(29,185,84,0.15)"/>
+  <text x="170" y="488" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#1db954" text-anchor="middle">WhatsApp $150/mes</text>
+  <rect x="276" y="460" width="160" height="44" rx="22" fill="rgba(0,87,255,0.15)"/>
+  <text x="356" y="488" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#60a5fa" text-anchor="middle">Dashboard $200/mes</text>
+  <rect x="452" y="460" width="140" height="44" rx="22" fill="rgba(124,58,237,0.15)"/>
+  <text x="522" y="488" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#a78bfa" text-anchor="middle">Trading $300</text>
+  <!-- Brand -->
+  <text x="80" y="590" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900" fill="#333" letter-spacing="-1">AM·IA</text>
+  <text x="160" y="590" font-family="Inter, Arial, sans-serif" font-size="16" fill="#333">· alejo132.github.io/landing-bot</text>
+  <!-- Right side decoration -->
+  <rect x="950" y="180" width="1" height="270" fill="#1a1a1a"/>
+  <text x="980" y="230" font-family="Inter, Arial, sans-serif" font-size="14" fill="#333" font-weight="700" letter-spacing="2">6 SERVICIOS</text>
+  <text x="980" y="270" font-family="Inter, Arial, sans-serif" font-size="13" fill="#444">💬 Bot de WhatsApp</text>
+  <text x="980" y="300" font-family="Inter, Arial, sans-serif" font-size="13" fill="#444">📈 Trading Automatizado</text>
+  <text x="980" y="330" font-family="Inter, Arial, sans-serif" font-size="13" fill="#444">🏢 Dashboard Inmobiliario</text>
+  <text x="980" y="360" font-family="Inter, Arial, sans-serif" font-size="13" fill="#444">📱 Automatización de Redes</text>
+  <text x="980" y="390" font-family="Inter, Arial, sans-serif" font-size="13" fill="#444">🌐 Chatbot para tu Web</text>
+  <text x="980" y="420" font-family="Inter, Arial, sans-serif" font-size="13" fill="#444">📊 Análisis de Datos</text>
+</svg>
