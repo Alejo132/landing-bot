@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alejo Monterroso · IA para Negocios</title>
-<meta name="description" content="Automatización inteligente para negocios. Bot de WhatsApp, trading, dashboards y más.">
+<title>Alejo Monterroso · Automatización con IA para Negocios | Montevideo</title>
+<meta name="description" content="Automatización con IA para negocios en Latinoamérica, España y EEUU. Bots de WhatsApp, trading automatizado, dashboards y chatbots web. Listos en 48 horas.">
+<link rel="canonical" href="https://alejo132.github.io/landing-bot/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alejo132.github.io/landing-bot/">
+<meta property="og:title" content="Alejo Monterroso · Automatización con IA para Negocios | Montevideo">
+<meta property="og:description" content="Automatización con IA para negocios en Latinoamérica, España y EEUU. Bots de WhatsApp, trading automatizado, dashboards y chatbots web. Listos en 48 horas.">
+<meta property="og:image" content="https://alejo132.github.io/landing-bot/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alejo Monterroso · Automatización con IA para Negocios | Montevideo">
+<meta name="twitter:description" content="Automatización con IA para negocios en Latinoamérica, España y EEUU. Bots de WhatsApp, trading automatizado, dashboards y chatbots web. Listos en 48 horas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
 <style>
@@ -243,7 +252,7 @@ section{padding:8rem 3rem}
 
 /* INDUSTRIAS */
 .industrias-section{background:#050505;border-top:1px solid #111;border-bottom:1px solid #111}
-.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #111;border-radius:16px;overflow:hidden;margin-top:4rem}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #111;border-radius:16px;overflow:hidden;margin:4rem auto 0;max-width:1200px}
 .ind-card{background:#080808;padding:2rem;transition:background .3s;cursor:default}
 .ind-card:hover{background:#0d0d0d}
 .ind-emoji{font-size:2rem;margin-bottom:1rem;display:block}
@@ -340,7 +349,17 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   .ind-grid,.compare-grid,.roi-result-grid{grid-template-columns:1fr}
   .modal-cols{grid-template-columns:1fr}
   .modal-box{padding:1.5rem}
+  .ind-grid{grid-template-columns:1fr}
+  body{padding-bottom:80px}
+  .mobile-cta{display:flex}
 }
+
+/* MOBILE CTA BAR */
+.mobile-cta{position:fixed;bottom:0;left:0;right:0;display:none;z-index:200;background:#0d0d0d;border-top:1px solid #222;padding:.75rem 1rem;gap:.75rem}
+.mobile-cta-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.7rem 1rem;border-radius:50px;font-size:.85rem;font-weight:800;text-decoration:none;transition:opacity .2s}
+.mobile-cta-btn:hover{opacity:.85}
+.mobile-cta-wa{background:#25d366;color:#fff}
+.mobile-cta-email{background:transparent;color:var(--white);border:1px solid #444}
 </style>
 </head>
 <body>
@@ -366,7 +385,7 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   <div class="hero-content">
     <div class="hero-eyebrow">Automatización · Inteligencia Artificial · Resultados</div>
     <h1 class="hero-h1">Tu negocio<br><em>trabaja solo.</em></h1>
-    <p class="hero-sub">Soy de Montevideo. Construyo bots de WhatsApp, trading automatizado, dashboards de mercado y más — con la misma IA que usan las grandes empresas, a un precio que tiene sentido.</p>
+    <p class="hero-sub">Construyo automatizaciones con IA para negocios en Latinoamérica, España y Estados Unidos. Bots de WhatsApp, dashboards, trading automatizado y más — listos en 48 horas.</p>
     <div class="hero-actions">
       <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20una%20demo" class="btn-primary" target="_blank">Quiero una demo →</a>
       <a href="#servicios" class="btn-ghost">Ver servicios ↓</a>
@@ -412,7 +431,7 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
     <div class="eyebrow reveal">¿Para quién es esto?</div>
     <h2 class="big-title reveal reveal-delay-1">Cualquier negocio<br>que pierda tiempo.</h2>
     <p class="lead reveal reveal-delay-2">Si respondés mensajes a mano, mandás reportes a mano o analizás datos a mano — hay un servicio para vos.</p>
-    <div class="ind-grid reveal" style="max-width:1200px;margin:4rem auto 0">
+    <div class="ind-grid reveal">
       <div class="ind-card">
         <span class="ind-emoji">🍕</span>
         <div class="ind-name">Restaurantes & Gastronomía</div>
@@ -1170,6 +1189,12 @@ footer{background:#050505;border-top:1px solid #111;padding:2.5rem 3rem;display:
   <div class="f-copy">© 2026 Alejo Monterroso · Montevideo, Uruguay</div>
 </footer>
 
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta">
+  <a href="https://wa.me/59895047981?text=Hola%20Alejo%2C%20quiero%20una%20demo" class="mobile-cta-btn mobile-cta-wa" target="_blank">💬 WhatsApp</a>
+  <a href="mailto:alejomonterrosop@gmail.com" class="mobile-cta-btn mobile-cta-email">📧 Email</a>
+</div>
+
 <script>
 // ROI Calculator
 function calcROI() {
@@ -1260,6 +1285,14 @@ document.addEventListener('keydown', e => {
       document.body.style.overflow = '';
     });
   }
+});
+
+// Smooth scroll with fixed nav offset
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); }
+  });
 });
 </script>
 </body>
